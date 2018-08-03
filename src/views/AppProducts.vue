@@ -9,12 +9,17 @@
         <tr>
           <th scope="col">Name</th>
           <th scope="col">Quantity</th>
+          <th scope="col">&nbsp;</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="product in products" :key="product.id" v-if="product.name.toLowerCase().includes(searchTerm.toLowerCase())">
           <td>{{ product.name }}</td>
           <td>{{ product.quantity }}</td>
+          <td class="text-right">
+            <button class="btn btn-light btn-sm mr-2" @click="increment(product)">+</button>
+            <button class="btn btn-light btn-sm" @click="decrement(product)">-</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -29,6 +34,16 @@
       return {
         products: productService.list(),
         searchTerm: ''
+      }
+    },
+
+    methods: {
+      increment(product) {
+        productService.increment(product)
+      },
+
+      decrement(product) {
+        productService.decrement(product)
       }
     }
   }
