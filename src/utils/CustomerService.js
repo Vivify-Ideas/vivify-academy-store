@@ -18,6 +18,10 @@ export default class CustomerService {
     return customers;
   }
 
+  add(customer) {
+    customers.push(customer)
+  }
+
   remove(customer) {
     customers.splice(customers.indexOf(customer), 1)
   }
