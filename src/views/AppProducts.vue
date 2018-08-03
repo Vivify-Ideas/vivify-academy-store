@@ -3,6 +3,7 @@
     <h1>Products</h1>
     <hr/>
 
+    <input type="text" class="form-control mb-3" placeholder="Search" v-model="searchTerm" style="width: 18rem;">
     <table class="table">
       <thead>
         <tr>
@@ -11,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="product in products" :key="product.id">
+        <tr v-for="product in products" :key="product.id" v-if="product.name.toLowerCase().includes(searchTerm.toLowerCase())">
           <td>{{ product.name }}</td>
           <td>{{ product.quantity }}</td>
         </tr>
@@ -26,7 +27,8 @@
   export default {
     data() {
       return {
-        products: productService.list()
+        products: productService.list(),
+        searchTerm: ''
       }
     }
   }
