@@ -23,6 +23,10 @@ export default class ProductService {
     return products;
   }
 
+  find(id) {
+    return products.find(product => product.id == id);
+  }
+
   increment(product) {
     product.quantity++
   }

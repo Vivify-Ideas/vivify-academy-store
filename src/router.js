@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Customers from './views/AppCustomers.vue'
 import LatestPurchases from './views/AppLatestPurchases.vue'
 import Products from './views/AppProducts.vue'
+import PurchaseProduct from './views/AppPurchaseProduct.vue'
 
 Vue.use(Router)
 
@@ -29,6 +30,12 @@ export default new Router({
       path: '/products',
       name: 'products',
       component: Products
+    },
+    {
+      path: '/products/:id',
+      name: 'purchase-product',
+      component: PurchaseProduct,
+      props: true
     }
   ]
 })

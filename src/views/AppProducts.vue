@@ -17,6 +17,9 @@
           <td>{{ product.name }}</td>
           <td>{{ product.quantity }}</td>
           <td class="text-right">
+            <router-link class="btn btn-light btn-sm mr-2" :to="{ name: 'purchase-product', params: { id: product.id }}">
+              <i class="fas fa-shopping-cart"></i>
+            </router-link>
             <button class="btn btn-light btn-sm mr-2" @click="increment(product)">+</button>
             <button class="btn btn-light btn-sm" @click="decrement(product)">-</button>
           </td>
