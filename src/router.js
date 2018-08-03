@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Customers from './views/AppCustomers.vue'
+import LatestPurchases from './views/AppLatestPurchases.vue'
 import Products from './views/AppProducts.vue'
 
 Vue.use(Router)
@@ -17,6 +18,12 @@ export default new Router({
       path: '/customers',
       name: 'customers',
       component: Customers
+    },
+    {
+      path: '/customers/:id',
+      name: 'latest-purchases',
+      component: LatestPurchases,
+      props: true
     },
     {
       path: '/products',

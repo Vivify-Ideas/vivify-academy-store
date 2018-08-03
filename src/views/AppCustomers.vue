@@ -29,13 +29,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(customer, index) in customers" :key="index">
+        <tr v-for="customer in customers" :key="customer.id">
           <td>{{ customer.fullName }}</td>
           <td>{{ customer.email }}</td>
           <td class="text-right">
-            <button class="btn btn-danger btn-sm" @click="removeCustomer(customer)">
+            <button class="btn btn-light btn-sm mr-2" @click="removeCustomer(customer)">
               <i class="fas fa-trash"></i>
             </button>
+            <router-link class="btn btn-light btn-sm" :to="{ name: 'latest-purchases', params: { id: customer.id }}">
+              <i class="fas fa-shopping-cart"></i>
+            </router-link>
           </td>
         </tr>
       </tbody>
